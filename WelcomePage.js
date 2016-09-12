@@ -9,8 +9,8 @@ import Button from './Button'
 export default class WelcomePage extends Component {
     render() {
         return (
-            <View style={{flex: 1, backgroundColor: '#246dd5', alignItems: 'center', justifyContent: 'center'}}>
-                <Text style={{color: 'white', fontSize: 32,marginBottom:20}}>Welcome</Text>
+            <View style={styles.view}>
+                <Text style={styles.title}>Welcome</Text>
                 <Button onPress={this.startPressed} text='Start'>
                 </Button>
             </View>
@@ -21,3 +21,17 @@ export default class WelcomePage extends Component {
         console.log('test');
     }
 }
+
+const styles = StyleSheet.create({
+    view: {
+        flex: 1,
+        backgroundColor: '#246dd5',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    title: {
+        color: 'white',
+        fontSize: 32,
+        marginBottom:20,
+    }
+});
