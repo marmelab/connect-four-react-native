@@ -18,7 +18,6 @@ export default class Button extends Component {
   }
 }
 
-
 const styles = StyleSheet.create({
     button: {
         backgroundColor: '#5cb85c',
