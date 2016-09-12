@@ -16,29 +16,33 @@ import {
 import WelcomePage from './WelcomePage';
 
 class ConnectFour extends Component {
-  render() {
-    return (
-        <Navigator
-            initialRoute={{id: 'WelcomePage', name: 'Index'}}
-            renderScene={this.renderScene.bind(this)}
-            configureScene={(route) => {
-                if (route.sceneConfig) {
-                    return route.sceneConfig;
-                }
-                return Navigator.SceneConfigs.FloatFromRight;
-            }} />
-    );
-  }
 
-  renderScene(route, navigator) {
-    var routeId = route.id;
-    if (routeId === 'WelcomePage') {
-      return (
-        <WelcomePage
-          navigator={navigator} />
-      );
+    render() {
+        return (
+            <Navigator
+                initialRoute={{id: 'WelcomePage', name: 'Index'}}
+                renderScene={this.renderScene}
+                configureScene={this.configureScene}
+            />
+        );
     }
-  }
+
+    renderScene(route, navigator) {
+        var routeId = route.id;
+        if (routeId === 'WelcomePage') {
+            return (
+                <WelcomePage
+                    navigator={navigator} />
+            );
+        }
+    }
+
+    configureScene(route){
+        if (route.sceneConfig) {
+            return route.sceneConfig;
+        }
+        return Navigator.SceneConfigs.FloatFromRight;
+    }
 
 }
 //
