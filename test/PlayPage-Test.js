@@ -2,7 +2,7 @@ import React, { Text } from 'react-native';
 import { shallow } from 'enzyme';
 import { expect } from 'chai';
 
-import PlayPage from '../src/PlayPage';
+import PlayPage from '../src/components/PlayPage';
 
 describe('<PlayPage />', () => {
     it('should render correctly', () => {
