@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {
   StyleSheet,
   Text,
   View,
 } from 'react-native';
+
+import Board from './Board';
+import BoardModel from '../models/Board';
 
 const styles = StyleSheet.create({
     view: {
@@ -19,10 +22,25 @@ const styles = StyleSheet.create({
     },
 });
 
-const PlayPage = () => (
-    <View style={styles.view}>
-        <Text style={styles.title}>Play</Text>
-    </View>
-);
+export default class PlayPage extends Component {
+    constructor() {
+        super();
 
-export default PlayPage;
+        const boardModel = new BoardModel(7, 6);
+
+        boardModel.addDisc(2, boardModel.colors.red);
+
+        this.state = {
+            board: boardModel,
+        };
+    }
+
+    render() {
+        return (
+            <View style={styles.view}>
+                <Text style={styles.title}>Play</Text>
+                <Board board={this.state.board} />
+            </View>
+        );
+    }
+}
