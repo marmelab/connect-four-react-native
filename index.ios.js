@@ -5,6 +5,7 @@ import {
 } from 'react-native';
 
 import WelcomePage from './src/WelcomePage';
+import PlayPage from './src/PlayPage';
 
 const ConnectFour = () => {
     const configureScene = (route) => {
@@ -20,6 +21,9 @@ const ConnectFour = () => {
         const routeId = route.id;
         if (routeId === 'WelcomePage') {
             return defaultPage(navigator);
+        }
+        if (routeId === 'PlayPage') {
+            return <PlayPage navigator={navigator} />;
         }
         return defaultPage(navigator);
     };

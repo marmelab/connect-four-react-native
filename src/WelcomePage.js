@@ -3,6 +3,7 @@ import {
   StyleSheet,
   Text,
   View,
+  Navigator,
 } from 'react-native';
 import Button from './Button';
 
@@ -20,17 +21,23 @@ const styles = StyleSheet.create({
     },
 });
 
-const WelcomePage = () => {
-    const startPressed = () => {
-        // TODO : Start a game
+const WelcomePage = (props) => {
+    const startPlaying = () => {
+        props.navigator.push({
+            id: 'PlayPage',
+        });
     };
 
     return (
         <View style={styles.view}>
             <Text style={styles.title}>Welcome</Text>
-            <Button onPress={startPressed} text="Start" />
+            <Button onPress={startPlaying} text="Start" />
         </View>
     );
+};
+
+WelcomePage.propTypes = {
+    navigator: React.PropTypes.instanceOf(Navigator),
 };
 
 export default WelcomePage;
