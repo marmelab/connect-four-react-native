@@ -1,14 +1,14 @@
-import React, { View, Text, StyleSheet } from 'react-native';
+import React, { Text } from 'react-native';
 import { shallow } from 'enzyme';
-import WelcomePage from '../src/WelcomePage';
 import { expect } from 'chai';
 
+import WelcomePage from '../src/WelcomePage';
+
 describe('<WelcomePage />', () => {
-
     it('should render correctly', () => {
-        const wrapper = shallow(<WelcomePage/>);
-        expect(wrapper.length).to.equal(1);
-        expect(wrapper.containsMatchingElement(<Text >Welcome</Text>)).to.equal(true);
-    });
+        const welcomePage = shallow(<WelcomePage />);
 
+        expect(welcomePage.length).to.equal(1);
+        expect(welcomePage.contains(Text)).to.equal(true);
+    });
 });
