@@ -13,7 +13,7 @@ import {
   Navigator
 } from 'react-native';
 
-import WelcomePage from './WelcomePage';
+import WelcomePage from './src/WelcomePage';
 
 export default class ConnectFour extends Component {
 
