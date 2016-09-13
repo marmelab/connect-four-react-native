@@ -23,6 +23,7 @@ const styles = StyleSheet.create({
 const WelcomePage = () => {
     const startPressed = () => {
         // TODO : Start a game
+        console.log('test');
     };
 
     return (
@@ -32,3 +33,5 @@ const WelcomePage = () => {
         </View>
     );
 };
+
+export default WelcomePage;

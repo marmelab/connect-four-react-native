@@ -30,3 +30,5 @@ Button.propTypes = {
     onPress: React.PropTypes.func.isRequired,
     text: React.PropTypes.string.isRequired,
 };
+
+export default Button;
