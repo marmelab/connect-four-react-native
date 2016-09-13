@@ -5,7 +5,12 @@ import Board from '../../src/models/Board';
 describe('Board', () => {
     it('should initialize correctly', () => {
         const board = new Board(2, 2);
+
         expect(board.cells.length).to.be.equal(2);
+
+        for (let x = 0; x < board.cells.length; x += 1) {
+            expect(board.cells[x].length).to.be.equal(2);
+        }
     });
 
     it('should be able to have a disc added', () => {
