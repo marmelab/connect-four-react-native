@@ -21,9 +21,9 @@ const styles = StyleSheet.create({
     },
 });
 
-const WelcomePage = (props) => {
+const WelcomePage = ({ navigator }) => {
     const startPlaying = () => {
-        props.navigator.push({
+        navigator.push({
             id: 'PlayPage',
         });
     };
