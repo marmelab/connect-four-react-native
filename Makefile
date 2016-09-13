@@ -11,4 +11,4 @@ run:
 	node_modules/.bin/react-native run-ios
 
 test:
-	node_modules/.bin/mocha --require test/setup.js --compilers js:babel-core/register --recursive test/**/*.js
+	node_modules/.bin/mocha --require test/setup.js --compilers js:babel-core/register 'test/**/*.js'
