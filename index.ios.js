@@ -15,7 +15,7 @@ import {
 
 import WelcomePage from './WelcomePage';
 
-class ConnectFour extends Component {
+export default class ConnectFour extends Component {
 
     render() {
         return (
