@@ -4,8 +4,8 @@ import {
   Navigator,
 } from 'react-native';
 
-import WelcomePage from './src/WelcomePage';
-import PlayPage from './src/PlayPage';
+import WelcomePage from './src/components/WelcomePage';
+import PlayPage from './src/components/PlayPage';
 
 const ConnectFour = () => {
     const configureScene = (route) => {
