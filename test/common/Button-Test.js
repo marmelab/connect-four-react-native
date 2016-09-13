@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import { expect } from 'chai';
 import sinon from 'sinon';
 
-import Button from '../../src/components/Button';
+import Button from '../../src/common/Button';
 
 describe('<Button />', () => {
     it('should render correctly', () => {

@@ -5,8 +5,8 @@ import {
   View,
 } from 'react-native';
 
-import Board from './Board';
-import BoardModel from '../models/Board';
+import Board from '../connectfour/Board';
+import BoardModel from '../connectfour/BoardModel';
 
 const styles = StyleSheet.create({
     view: {

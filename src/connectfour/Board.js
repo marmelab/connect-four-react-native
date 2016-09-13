@@ -4,7 +4,7 @@ import {
   View,
 } from 'react-native';
 
-import BoardModel from '../models/Board';
+import BoardModel from './BoardModel';
 import Cell from './Cell';
 
 const styles = StyleSheet.create({

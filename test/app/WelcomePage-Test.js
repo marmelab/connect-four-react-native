@@ -2,7 +2,7 @@ import React, { Text } from 'react-native';
 import { shallow } from 'enzyme';
 import { expect } from 'chai';
 
-import WelcomePage from '../../src/components/WelcomePage';
+import WelcomePage from '../../src/app/WelcomePage';
 
 describe('<WelcomePage />', () => {
     it('should render correctly', () => {

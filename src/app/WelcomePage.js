@@ -5,7 +5,7 @@ import {
   View,
   Navigator,
 } from 'react-native';
-import Button from './Button';
+import Button from '../common/Button';
 
 const styles = StyleSheet.create({
     view: {
