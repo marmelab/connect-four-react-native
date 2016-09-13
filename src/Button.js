@@ -27,7 +27,7 @@ const Button = ({ onPress, text }) => (
 );
 
 Button.propTypes = {
-    onPress: React.PropTypes.func.isRequired,
+    onPress: React.PropTypes.func,
     text: React.PropTypes.string.isRequired,
 };
 
