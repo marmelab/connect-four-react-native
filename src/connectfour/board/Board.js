@@ -6,7 +6,7 @@ import {
 
 import BoardModel from './BoardModel';
 import Cell from './Cell';
-import Button from '../chrome/Button';
+import Button from '../../chrome/Button';
 
 const styles = StyleSheet.create({
     container: {

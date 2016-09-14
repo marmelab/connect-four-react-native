@@ -58,6 +58,10 @@ export default class PlayPage extends Component {
         this.setState({ game: switchGamePlayers(this.state.game) });
     }
 
+    dropDisc = (column) => {
+        this.setState({ game: this.state.game.dropDisc(column, this.state.game.currentPlayer) });
+    }
+
     render() {
         const game = this.state.game;
         return (
