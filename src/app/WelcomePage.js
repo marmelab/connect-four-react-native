@@ -5,7 +5,8 @@ import {
   View,
   Navigator,
 } from 'react-native';
-import Button from '../common/Button';
+
+import Button from '../chrome/Button';
 
 const styles = StyleSheet.create({
     view: {
