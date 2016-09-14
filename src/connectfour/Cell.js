@@ -34,7 +34,7 @@ const Cell = ({ color }) =>
 ;
 
 Cell.propTypes = {
-    color: React.PropTypes.number,
+    color: React.PropTypes.number.isRequired,
 };
 
 export default Cell;
