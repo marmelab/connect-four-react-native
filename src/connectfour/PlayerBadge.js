@@ -37,7 +37,7 @@ const PlayerBadge = ({ player, highlighted }) => {
     return (
         <View style={wrapperStyle}>
             <View style={[styles.disc, styles[player.color]]} />
-            <Text>{player.name}</Text>{highlighted}
+            <Text>{player.name}</Text>
         </View>
     );
 };
