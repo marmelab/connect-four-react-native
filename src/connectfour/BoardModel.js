@@ -32,14 +32,10 @@ export default class Board {
     }
 
     isFull() {
-        for (let x = 0; x < this.cells.length; x += 1) {
-            const column = this.cells[x];
-            for (let y = 0; y < column.length; y += 1) {
-                if (column[y] === 0) {
-                    return false;
-                }
-            }
-        }
-        return true;
+        return this.cells.every(column =>
+            column.every(cell =>
+                cell !== 0
+            )
+        );
     }
 }
