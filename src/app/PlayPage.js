@@ -23,8 +23,8 @@ const styles = StyleSheet.create({
 });
 
 export default class PlayPage extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
 
         const boardModel = new BoardModel(7, 6);
 
