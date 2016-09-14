@@ -6,15 +6,15 @@ import {
 
 const styles = StyleSheet.create({
     cell: {
-        flex: 1,
         padding: 5,
-        width: 40,
-        height: 40,
         alignItems: 'stretch',
+        flex: -1,
     },
     disc: {
-        flex: 1,
+        flex: -1,
         borderRadius: 20,
+        height: 40,
+        width: 40,
     },
     0: {
         backgroundColor: 'white',
@@ -27,14 +27,15 @@ const styles = StyleSheet.create({
     },
 });
 
-const Cell = ({ color }) =>
-    <View style={styles.cell}>
+const Cell = ({ color, style }) =>
+    <View style={[styles.cell, style]}>
         <View style={[styles.disc, styles[color]]} />
     </View>
 ;
 
 Cell.propTypes = {
     color: React.PropTypes.number.isRequired,
+    style: React.PropTypes.number,
 };
 
 export default Cell;

@@ -6,22 +6,40 @@ import {
 } from 'react-native';
 
 import Board from '../connectfour/board/Board';
-import Button from '../chrome/Button';
 import GameModel from '../connectfour/game/GameModel';
 import PlayerBadge from '../connectfour/player/PlayerBadge';
 import switchGamePlayers from '../connectfour/game/SwitchPlayers';
 
 const styles = StyleSheet.create({
-    view: {
+    container: {
         flex: 1,
+        flexDirection: 'column',
         backgroundColor: '#246dd5',
         alignItems: 'center',
         justifyContent: 'center',
     },
     title: {
+        flex: 0,
+        alignSelf: 'stretch',
+        textAlign: 'center',
         color: 'white',
         fontSize: 32,
-        marginBottom: 20,
+    },
+    players: {
+        flex: 0,
+        alignSelf: 'stretch',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-around',
+        marginTop: 10,
+        marginBottom: 10,
+    },
+    playerBadge: {
+        padding: 10,
+    },
+    board: {
+        flex: 0,
+        alignSelf: 'stretch',
     },
 });
 
@@ -43,15 +61,15 @@ export default class PlayPage extends Component {
     render() {
         const game = this.state.game;
         return (
-            <View style={styles.view}>
+            <View style={styles.container}>
                 <Text style={styles.title}>Play</Text>
 
-                <Button onPress={this.changeTurn} text="Change turn" />
+                <View style={styles.players}>
+                    <PlayerBadge player={game.player1} highlighted={game.isCurrentPlayer(game.player1)} style={styles.playerBadge} />
+                    <PlayerBadge player={game.player2} highlighted={game.isCurrentPlayer(game.player2)} style={styles.playerBadge} />
+                </View>
 
-                <PlayerBadge player={game.player1} highlighted={game.isCurrentPlayer(game.player1)} />
-                <PlayerBadge player={game.player2} highlighted={game.isCurrentPlayer(game.player2)} />
-
-                <Board board={game.board} />
+                <Board board={game.board} dropDisc={this.dropDisc} style={styles.board} />
             </View>
         );
     }
