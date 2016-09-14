@@ -1,7 +1,6 @@
 import React, { View } from 'react-native';
 import { shallow } from 'enzyme';
 import { expect } from 'chai';
-// import sinon from 'sinon';
 
 import Board from '../../src/connectfour/Board';
 import Cell from '../../src/connectfour/Cell';
