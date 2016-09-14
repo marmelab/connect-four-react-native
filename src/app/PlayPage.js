@@ -4,8 +4,10 @@ import {
   Text,
   View,
 } from 'react-native';
+import update from 'react-addons-update';
 
 import Board from '../connectfour/Board';
+import Button from '../chrome/Button';
 import PlayerBadge from '../connectfour/PlayerBadge';
 import GameModel from '../connectfour/GameModel';
 
@@ -34,10 +36,16 @@ export default class PlayPage extends Component {
         };
     }
 
+    changeTurn = () => {
+        this.setState({ game: this.state.game.switchPlayers() });
+    }
+
     render() {
         return (
             <View style={styles.view}>
                 <Text style={styles.title}>Play</Text>
+
+                <Button onPress={this.changeTurn} text="Change turn" />
 
                 <PlayerBadge player={this.state.game.player1} highlighted={this.state.game.isCurrentPlayer(this.state.game.player1)} />
                 <PlayerBadge player={this.state.game.player2} highlighted={this.state.game.isCurrentPlayer(this.state.game.player2)} />
