@@ -1,12 +1,12 @@
 import update from 'react-addons-update';
 
-import Board from './BoardModel';
-import Player from './PlayerModel';
+import BoardModel from './BoardModel';
+import PlayerModel from './PlayerModel';
 
 export default class Game {
 
     constructor(firstPlayerName = 'Player #1', secondPlayerName = 'Player #2') {
-        this.board = new Board(7, 6);
+        this.board = new BoardModel(7, 6);
 
         this.initializePlayers(firstPlayerName, secondPlayerName);
 
@@ -15,13 +15,17 @@ export default class Game {
     }
 
     initializePlayers(firstPlayerName, secondPlayerName) {
-        const firstPlayerColor = Math.random() < 0.5 ? this.board.colors.red : this.board.colors.yellow;
+        const firstPlayerColor = Math.random() < 0.5 ? BoardModel.colors.red : BoardModel.colors.yellow;
 
-        this.player1 = new Player(firstPlayerName, firstPlayerColor);
+        this.player1 = new PlayerModel(firstPlayerName, firstPlayerColor);
 
-        const secondPlayerColor = firstPlayerColor === this.board.colors.red ? this.board.colors.yellow : this.board.colors.red;
+        const secondPlayerColor = firstPlayerColor === BoardModel.colors.red ? BoardModel.colors.yellow : BoardModel.colors.red;
 
-        this.player2 = new Player(secondPlayerName, secondPlayerColor);
+        this.player2 = new PlayerModel(secondPlayerName, secondPlayerColor);
+    }
+
+    isCurrentPlayer(player) {
+        return this.currentPlayer === player;
     }
 
     switchPlayers() {

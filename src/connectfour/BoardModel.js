@@ -1,7 +1,7 @@
 import update from 'react-addons-update';
 
 export default class Board {
-    colors = {
+    static colors = {
         empty: 0,
         red: 1,
         yellow: 2,
@@ -16,7 +16,7 @@ export default class Board {
         for (let x = 0; x < width; x += 1) {
             this.cells[x] = [];
             for (let y = 0; y < height; y += 1) {
-                this.cells[x][y] = this.colors.empty;
+                this.cells[x][y] = Board.colors.empty;
             }
         }
     }

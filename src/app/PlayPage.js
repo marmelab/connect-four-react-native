@@ -6,7 +6,8 @@ import {
 } from 'react-native';
 
 import Board from '../connectfour/Board';
-import BoardModel from '../connectfour/BoardModel';
+import PlayerBadge from '../connectfour/PlayerBadge';
+import GameModel from '../connectfour/GameModel';
 
 const styles = StyleSheet.create({
     view: {
@@ -26,12 +27,10 @@ export default class PlayPage extends Component {
     constructor(props) {
         super(props);
 
-        let boardModel = new BoardModel(7, 6);
-
-        boardModel = boardModel.addDisc(2, boardModel.colors.red);
+        const gameModel = new GameModel();
 
         this.state = {
-            board: boardModel,
+            game: gameModel,
         };
     }
 
@@ -39,7 +38,11 @@ export default class PlayPage extends Component {
         return (
             <View style={styles.view}>
                 <Text style={styles.title}>Play</Text>
-                <Board board={this.state.board} />
+
+                <PlayerBadge player={this.state.game.player1} highlighted={this.state.game.isCurrentPlayer(this.state.game.player1)} />
+                <PlayerBadge player={this.state.game.player2} highlighted={this.state.game.isCurrentPlayer(this.state.game.player2)} />
+
+                <Board board={this.state.game.board} />
             </View>
         );
     }

@@ -18,7 +18,7 @@ describe('Board', () => {
     describe('addDisc', () => {
         it('should add a disc to the right column', () => {
             let board = new BoardModel(2, 2);
-            board = board.addDisc(0, board.colors.red);
+            board = board.addDisc(0, BoardModel.colors.red);
             expect(board.cells[0][1]).not.to.be.equal(0);
         });
     });
@@ -27,7 +27,7 @@ describe('Board', () => {
         it('should recognize when a board is full', () => {
             let board = new BoardModel(1, 1);
             expect(board.isFull()).to.be.false;
-            board = board.addDisc(0, board.colors.red);
+            board = board.addDisc(0, BoardModel.colors.red);
             expect(board.isFull()).to.be.true;
         });
     });
