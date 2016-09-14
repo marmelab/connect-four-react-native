@@ -1,3 +1,5 @@
+import update from 'react-addons-update';
+
 export default class Board {
     colors = {
         empty: 0,
@@ -22,13 +24,24 @@ export default class Board {
     addDisc(columnNumber, color) {
         // TODO : check column exists
         // TODO : check color exists
+
         const column = this.cells[columnNumber];
-        for (let y = column.length - 1; y >= 0; y -= 1) {
-            if (column[y] === 0) {
-                column[y] = color;
-                return;
+        let rowNumber = -1;
+        for (rowNumber = column.length - 1; rowNumber >= 0; rowNumber -= 1) {
+            if (column[rowNumber] === 0) {
+                break;
             }
         }
+
+        return update(this, {
+            cells: {
+                [columnNumber]: {
+                    [rowNumber]: {
+                        $set: color,
+                    },
+                },
+            },
+        });
     }
 
     isFull() {

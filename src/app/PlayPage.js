@@ -26,9 +26,9 @@ export default class PlayPage extends Component {
     constructor(props) {
         super(props);
 
-        const boardModel = new BoardModel(7, 6);
+        let boardModel = new BoardModel(7, 6);
 
-        boardModel.addDisc(2, boardModel.colors.red);
+        boardModel = boardModel.addDisc(2, boardModel.colors.red);
 
         this.state = {
             board: boardModel,
