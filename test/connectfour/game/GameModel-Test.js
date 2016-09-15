@@ -4,28 +4,26 @@ import sinon from 'sinon';
 
 import BoardModel from '../../../src/connectfour/board/BoardModel';
 import GameModel from '../../../src/connectfour/game/GameModel';
+import switchGamePlayers from '../../../src/connectfour/game/SwitchPlayers';
 
 describe('Game', () => {
+    let sandbox;
     let firstPlayerName;
     let secondPlayerName;
 
     beforeEach(() => {
+        sandbox = sinon.sandbox.create();
+
         const chance = new Chance();
         firstPlayerName = chance.name();
         secondPlayerName = chance.name();
     });
 
+    afterEach(() => {
+        sandbox.restore();
+    });
+
     describe('constructor', () => {
-        let sandbox;
-
-        beforeEach(() => {
-            sandbox = sinon.sandbox.create();
-        });
-
-        afterEach(() => {
-            sandbox.restore();
-        });
-
         it('should use player names parameters', () => {
             const game = new GameModel(firstPlayerName, secondPlayerName);
 
@@ -59,6 +57,24 @@ describe('Game', () => {
 
             const game = new GameModel(firstPlayerName, secondPlayerName);
             expect(game.player1.color).to.be.equal(BoardModel.colors.yellow);
+        });
+    });
+
+    describe('isCurrentPlayer', () => {
+        it('should give the right current player upon game initialization', () => {
+            sandbox.stub(Math, 'random').returns(0.3);
+
+            const game = new GameModel(firstPlayerName, secondPlayerName);
+            expect(game.isCurrentPlayer(game.player1)).to.be.true;
+        });
+
+        it('should give the right current player after switching', () => {
+            sandbox.stub(Math, 'random').returns(0.3);
+
+            let game = new GameModel(firstPlayerName, secondPlayerName);
+            game = switchGamePlayers(game);
+
+            expect(game.isCurrentPlayer(game.player2)).to.be.true;
         });
     });
 });
