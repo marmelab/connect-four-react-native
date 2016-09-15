@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 
-import addDisc from '../../../src/connectfour/board/AddDisc';
+import addDiscToBoard from '../../../src/connectfour/board/AddDisc';
 import BoardModel from '../../../src/connectfour/board/BoardModel';
 
 describe('Board', () => {
@@ -16,19 +16,11 @@ describe('Board', () => {
         });
     });
 
-    describe('addDisc', () => {
-        it('should add a disc to the right column', () => {
-            let board = new BoardModel(2, 2);
-            board = addDisc(board, 0, BoardModel.colors.red);
-            expect(board.cells[0][1]).not.to.be.equal(0);
-        });
-    });
-
     describe('isFull', () => {
         it('should recognize when a board is full', () => {
             let board = new BoardModel(1, 1);
             expect(board.isFull()).to.be.false;
-            board = addDisc(board, 0, BoardModel.colors.red);
+            board = addDiscToBoard(board, 0, BoardModel.colors.red);
             expect(board.isFull()).to.be.true;
         });
     });
