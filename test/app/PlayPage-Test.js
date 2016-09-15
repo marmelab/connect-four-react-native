@@ -2,8 +2,6 @@ import React, { Text } from 'react-native';
 import { shallow } from 'enzyme';
 import { expect } from 'chai';
 
-import Button from '../../src/chrome/Button';
-import PlayerBadge from '../../src/connectfour/player/PlayerBadge';
 import PlayPage from '../../src/app/PlayPage';
 
 describe('<PlayPage />', () => {
