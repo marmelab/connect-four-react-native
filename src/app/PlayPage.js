@@ -9,6 +9,7 @@ import Board from '../connectfour/board/Board';
 import Button from '../chrome/Button';
 import GameModel from '../connectfour/game/GameModel';
 import PlayerBadge from '../connectfour/player/PlayerBadge';
+import switchGamePlayers from '../connectfour/game/SwitchPlayers';
 
 const styles = StyleSheet.create({
     view: {
@@ -36,7 +37,7 @@ export default class PlayPage extends Component {
     }
 
     changeTurn = () => {
-        this.setState({ game: this.state.game.switchPlayers() });
+        this.setState({ game: switchGamePlayers(this.state.game) });
     }
 
     render() {

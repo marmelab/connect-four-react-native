@@ -61,15 +61,4 @@ describe('Game', () => {
             expect(game.player1.color).to.be.equal(BoardModel.colors.yellow);
         });
     });
-
-    describe('switchPlayers', () => {
-        it('should switch players when asked to', () => {
-            let game = new GameModel(firstPlayerName, secondPlayerName);
-
-            const firstPlayer = game.currentPlayer;
-            game = game.switchPlayers();
-
-            expect(game.currentPlayer).not.to.be.equal(firstPlayer);
-        });
-    });
 });

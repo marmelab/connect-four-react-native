@@ -1,5 +1,3 @@
-import update from 'react-addons-update';
-
 import BoardModel from '../board/BoardModel';
 import PlayerModel from '../player/PlayerModel';
 
@@ -26,14 +24,5 @@ export default class Game {
 
     isCurrentPlayer(player) {
         return this.currentPlayer === player;
-    }
-
-    switchPlayers() {
-        const nextPlayer = this.currentPlayer === this.player1 ? this.player2 : this.player1;
-        return update(this, {
-            currentPlayer: {
-                $set: nextPlayer,
-            },
-        });
     }
 }
