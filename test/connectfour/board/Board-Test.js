@@ -36,7 +36,6 @@ describe('<Board />', () => {
         expect(board.find(Button).length).to.equal(2);
     });
 
-
     it('should fill board when I click on the action button', () => {
         const boardModel = new BoardModel(2, 2);
 
@@ -49,5 +48,22 @@ describe('<Board />', () => {
         board.find(Button).first().simulate('press');
         expect(dropDiscCallback.calledTwice).to.be.true;
         expect(dropDiscCallback.args[1][0]).to.be.equal(0);
+    });
+
+    it('should make action button disappear when column full', () => {
+        const boardModel = new BoardModel(2, 2);
+        const board = shallow(<Board board={boardModel} dropDisc={dropDiscCallback} />);
+
+        const numberOfActionButtons = board.find(Button).length;
+
+        boardModel.cells[0].fill(1);
+        board.setProps({
+            board: boardModel,
+        });
+        board.update();
+
+        const newNumberOfActionButtons = board.find(Button).length;
+
+        expect(numberOfActionButtons - 1).to.be.equal(newNumberOfActionButtons);
     });
 });
