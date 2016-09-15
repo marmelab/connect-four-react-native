@@ -8,7 +8,7 @@ import {
 import Board from '../connectfour/board/Board';
 import GameModel from '../connectfour/game/GameModel';
 import PlayerBadge from '../connectfour/player/PlayerBadge';
-import switchGamePlayers from '../connectfour/game/SwitchPlayers';
+import playTurn from '../connectfour/game/PlayTurn';
 
 const styles = StyleSheet.create({
     container: {
@@ -54,12 +54,8 @@ export default class PlayPage extends Component {
         };
     }
 
-    changeTurn = () => {
-        this.setState({ game: switchGamePlayers(this.state.game) });
-    }
-
     dropDisc = (column) => {
-        this.setState({ game: this.state.game.dropDisc(column, this.state.game.currentPlayer) });
+        this.setState({ game: playTurn(this.state.game, column) });
     }
 
     render() {
