@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     },
 });
 
-const Cell = ({ color, style }) =>
+const Cell = ({ color, style = null }) =>
     <View style={[styles.cell, style]}>
         <View style={[styles.disc, styles[color]]} />
     </View>
