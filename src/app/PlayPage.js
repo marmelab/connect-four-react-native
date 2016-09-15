@@ -41,16 +41,17 @@ export default class PlayPage extends Component {
     }
 
     render() {
+        const game = this.state.game;
         return (
             <View style={styles.view}>
                 <Text style={styles.title}>Play</Text>
 
                 <Button onPress={this.changeTurn} text="Change turn" />
 
-                <PlayerBadge player={this.state.game.player1} highlighted={this.state.game.isCurrentPlayer(this.state.game.player1)} />
-                <PlayerBadge player={this.state.game.player2} highlighted={this.state.game.isCurrentPlayer(this.state.game.player2)} />
+                <PlayerBadge player={game.player1} highlighted={game.isCurrentPlayer(game.player1)} />
+                <PlayerBadge player={game.player2} highlighted={game.isCurrentPlayer(game.player2)} />
 
-                <Board board={this.state.game.board} />
+                <Board board={game.board} />
             </View>
         );
     }
