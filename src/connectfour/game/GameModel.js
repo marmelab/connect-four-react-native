@@ -9,7 +9,6 @@ export default class Game {
         this.initializePlayers(firstPlayerName, secondPlayerName);
 
         this.currentPlayer = Math.random() < 0.5 ? this.player1 : this.player2;
-        this.winner = null;
     }
 
     initializePlayers(firstPlayerName, secondPlayerName) {

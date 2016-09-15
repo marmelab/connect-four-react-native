@@ -48,7 +48,6 @@ export default class PlayPage extends Component {
         super(props);
 
         const gameModel = new GameModel();
-
         this.state = {
             game: gameModel,
         };

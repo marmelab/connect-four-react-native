@@ -6,7 +6,6 @@ import sinon from 'sinon';
 import Board from '../../../src/connectfour/board/Board';
 import Cell from '../../../src/connectfour/board/Cell';
 import ControlButton from '../../../src/connectfour/board/ControlButton';
-import Button from '../../../src/chrome/Button';
 import BoardModel from '../../../src/connectfour/board/BoardModel';
 
 describe('<Board />', () => {
