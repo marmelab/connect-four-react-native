@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
 
 });
 
-const Board = ({ board, dropDisc, style }) => {
+const Board = ({ board, dropDisc, style = null }) => {
     const controlButtons = board.cells.map((cell, y) => {
         if (board.isColumnFull(y)) {
             return (<View key={`dropdisc-button-${y}`} style={styles.button} />);

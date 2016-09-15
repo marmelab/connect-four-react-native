@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     },
 });
 
-const PlayerBadge = ({ player, highlighted, style }) => {
+const PlayerBadge = ({ player, highlighted, style = null }) => {
     const wrapperStyle = [styles.wrapper];
     if (highlighted) {
         wrapperStyle.push(styles.highlighted);
