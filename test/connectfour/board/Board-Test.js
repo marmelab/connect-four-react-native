@@ -2,9 +2,9 @@ import React, { View } from 'react-native';
 import { shallow } from 'enzyme';
 import { expect } from 'chai';
 
-import Board from '../../src/connectfour/Board';
-import Cell from '../../src/connectfour/Cell';
-import BoardModel from '../../src/connectfour/BoardModel';
+import Board from '../../../src/connectfour/board/Board';
+import BoardModel from '../../../src/connectfour/board/BoardModel';
+import Cell from '../../../src/connectfour/board/Cell';
 
 describe('<Board />', () => {
     it('should render the right amount of columns', () => {

@@ -5,8 +5,11 @@ import {
   View,
 } from 'react-native';
 
-import Board from '../connectfour/Board';
-import BoardModel from '../connectfour/BoardModel';
+import Board from '../connectfour/board/Board';
+import Button from '../chrome/Button';
+import GameModel from '../connectfour/game/GameModel';
+import PlayerBadge from '../connectfour/player/PlayerBadge';
+import switchGamePlayers from '../connectfour/game/SwitchPlayers';
 
 const styles = StyleSheet.create({
     view: {
@@ -26,20 +29,29 @@ export default class PlayPage extends Component {
     constructor(props) {
         super(props);
 
-        let boardModel = new BoardModel(7, 6);
-
-        boardModel = boardModel.addDisc(2, boardModel.colors.red);
+        const gameModel = new GameModel();
 
         this.state = {
-            board: boardModel,
+            game: gameModel,
         };
     }
 
+    changeTurn = () => {
+        this.setState({ game: switchGamePlayers(this.state.game) });
+    }
+
     render() {
+        const game = this.state.game;
         return (
             <View style={styles.view}>
                 <Text style={styles.title}>Play</Text>
-                <Board board={this.state.board} />
+
+                <Button onPress={this.changeTurn} text="Change turn" />
+
+                <PlayerBadge player={game.player1} highlighted={game.isCurrentPlayer(game.player1)} />
+                <PlayerBadge player={game.player2} highlighted={game.isCurrentPlayer(game.player2)} />
+
+                <Board board={game.board} />
             </View>
         );
     }
