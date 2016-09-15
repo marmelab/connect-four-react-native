@@ -65,7 +65,7 @@ const Board = ({ board, dropDisc, style }) => {
 Board.propTypes = {
     board: React.PropTypes.instanceOf(BoardModel),
     dropDisc: React.PropTypes.func.isRequired,
-    style: React.PropTypes.number,
+    style: View.propTypes.style,
 };
 
 export default Board;

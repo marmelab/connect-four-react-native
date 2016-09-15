@@ -47,7 +47,7 @@ const PlayerBadge = ({ player, highlighted, style }) => {
 PlayerBadge.propTypes = {
     player: React.PropTypes.instanceOf(PlayerModel).isRequired,
     highlighted: React.PropTypes.bool,
-    style: React.PropTypes.number,
+    style: View.propTypes.style,
 };
 
 export default PlayerBadge;
