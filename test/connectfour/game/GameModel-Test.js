@@ -2,8 +2,8 @@ import { expect } from 'chai';
 import { Chance } from 'chance';
 import sinon from 'sinon';
 
-import GameModel from '../../src/connectfour/GameModel';
-import BoardModel from '../../src/connectfour/BoardModel';
+import BoardModel from '../../../src/connectfour/board/BoardModel';
+import GameModel from '../../../src/connectfour/game/GameModel';
 
 describe('Game', () => {
     let firstPlayerName;

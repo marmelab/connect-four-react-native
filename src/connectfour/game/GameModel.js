@@ -1,7 +1,7 @@
 import update from 'react-addons-update';
 
-import BoardModel from './BoardModel';
-import PlayerModel from './PlayerModel';
+import BoardModel from '../board/BoardModel';
+import PlayerModel from '../player/PlayerModel';
 
 export default class Game {
 

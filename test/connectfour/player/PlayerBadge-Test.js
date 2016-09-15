@@ -3,9 +3,9 @@ import { shallow } from 'enzyme';
 import { expect } from 'chai';
 import { Chance } from 'chance';
 
-import PlayerModel from '../../src/connectfour/PlayerModel';
-import BoardModel from '../../src/connectfour/BoardModel';
-import PlayerBadge from '../../src/connectfour/PlayerBadge';
+import BoardModel from '../../../src/connectfour/board/BoardModel';
+import PlayerBadge from '../../../src/connectfour/player/PlayerBadge';
+import PlayerModel from '../../../src/connectfour/player/PlayerModel';
 
 describe('<PlayerBadge />', () => {
     let playerName;

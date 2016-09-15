@@ -4,12 +4,11 @@ import {
   Text,
   View,
 } from 'react-native';
-import update from 'react-addons-update';
 
-import Board from '../connectfour/Board';
+import Board from '../connectfour/board/Board';
 import Button from '../chrome/Button';
-import PlayerBadge from '../connectfour/PlayerBadge';
-import GameModel from '../connectfour/GameModel';
+import GameModel from '../connectfour/game/GameModel';
+import PlayerBadge from '../connectfour/player/PlayerBadge';
 
 const styles = StyleSheet.create({
     view: {
