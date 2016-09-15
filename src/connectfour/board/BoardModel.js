@@ -11,12 +11,9 @@ export default class Board {
     }
 
     initializeCells(width, height) {
-        for (let x = 0; x < width; x += 1) {
-            this.cells[x] = [];
-            for (let y = 0; y < height; y += 1) {
-                this.cells[x][y] = Board.colors.empty;
-            }
-        }
+        this.cells = Array.from(Array(width), () =>
+            Array(height).fill(Board.colors.empty)
+        );
     }
 
     isFull() {
