@@ -19,9 +19,6 @@ const ConnectFour = () => {
 
     const renderScene = (route, navigator) => {
         const routeId = route.id;
-        if (routeId === 'WelcomePage') {
-            return defaultPage(navigator);
-        }
         if (routeId === 'PlayPage') {
             return <PlayPage navigator={navigator} />;
         }
