@@ -1,9 +1,9 @@
 import React from 'react';
 import {
-  StyleSheet,
-  Text,
-  View,
-  Navigator,
+    StyleSheet,
+    Text,
+    View,
+    Navigator,
 } from 'react-native';
 
 import Button from '../chrome/Button';

@@ -1,7 +1,7 @@
 import React from 'react';
 import {
-  StyleSheet,
-  View,
+    StyleSheet,
+    View,
 } from 'react-native';
 
 import BoardModel from './BoardModel';

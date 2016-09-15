@@ -1,9 +1,9 @@
 import React from 'react';
 import {
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
+    StyleSheet,
+    Text,
+    TouchableOpacity,
+    View,
 } from 'react-native';
 
 const styles = StyleSheet.create({
@@ -29,6 +29,7 @@ const Button = ({ onPress, text, style = null }) => (
 Button.propTypes = {
     onPress: React.PropTypes.func,
     text: React.PropTypes.string.isRequired,
+    style: View.propTypes.style,
 };
 
 export default Button;

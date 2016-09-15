@@ -1,9 +1,9 @@
 export const transposeHorizontally = array =>
-        array[0].map((column, i) =>
-            array.map(row =>
-                row[i]
-            )
-        );
+    array[0].map((column, i) =>
+        array.map(row =>
+            row[i]
+        )
+    );
 
 export const transposeDiagonally = (array, bottomToTop = false) => {
     const transposedCells = [];

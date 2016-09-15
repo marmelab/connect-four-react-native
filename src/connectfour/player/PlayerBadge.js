@@ -1,8 +1,8 @@
 import React from 'react';
 import {
-  StyleSheet,
-  View,
-  Text,
+    StyleSheet,
+    View,
+    Text,
 } from 'react-native';
 
 import PlayerModel from './PlayerModel';
