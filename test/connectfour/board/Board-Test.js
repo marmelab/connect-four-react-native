@@ -29,7 +29,7 @@ describe('<Board />', () => {
         expect(board.find(Cell).length).to.equal(4);
     });
 
-    it('should render as many button as column', () => {
+    it('should render as many buttons as column', () => {
         const boardModel = new BoardModel(2, 2);
         const board = shallow(<Board board={boardModel} dropDisc={dropDiscCallback} />);
 
