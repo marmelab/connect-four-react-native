@@ -1,3 +1,6 @@
+import { transposeHorizontally, transposeDiagonally } from '../../tool/ArrayTransposer';
+import hasConsecutiveValues from '../../tool/ArrayConsecutive';
+
 export default class Board {
     static colors = {
         empty: 0,
@@ -26,5 +29,21 @@ export default class Board {
                 cell !== 0
             )
         );
+    }
+
+    hasVerticallyAlignedDiscs() {
+        return hasConsecutiveValues(this.cells);
+    }
+
+    hasHorizontallyAlignedDiscs() {
+        return hasConsecutiveValues(transposeHorizontally(this.cells));
+    }
+
+    hasDiagonalBottomLeftTopRightAlignedDiscs() {
+        return hasConsecutiveValues(transposeDiagonally(this.cells, true));
+    }
+
+    hasDiagonalTopLeftBottomRightAlignedDiscs() {
+        return hasConsecutiveValues(transposeDiagonally(this.cells));
     }
 }
