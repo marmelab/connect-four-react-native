@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  View,
+    View,
 } from 'react-native';
 
 import BoardModel from './BoardModel';
@@ -13,8 +13,8 @@ const ControlButton = ({ board, onPress, column, style = null }) => {
 
     return (
         board.isColumnFull(column) ?
-            <View key={`dropdisc-button-${column}`} style={style} /> :
-            <Button text={String(column + 1)} onPress={dropDisc} key={`dropdisc-button-${column}`} style={style} />
+            <View style={style} /> :
+            <Button text={String(column + 1)} onPress={dropDisc} style={style} />
     );
 };
 
