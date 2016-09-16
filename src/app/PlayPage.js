@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 
 import Board from '../connectfour/board/Board';
+import Button from '../chrome/Button';
 import GameModel from '../connectfour/game/GameModel';
 import PlayerBadge from '../connectfour/player/PlayerBadge';
 import playTurn from '../connectfour/game/PlayTurn';
@@ -114,6 +115,8 @@ export default class PlayPage extends Component {
                 </View>
 
                 <Board board={game.board} dropDisc={this.dropDisc} style={styles.board} />
+
+                <Button onPress={this.backToHome} text="< Cancel game" />
             </View>
         );
     }
