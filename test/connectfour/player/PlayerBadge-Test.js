@@ -3,9 +3,9 @@ import { shallow } from 'enzyme';
 import { expect } from 'chai';
 import { Chance } from 'chance';
 
-import BoardModel from '../../../src/connectfour/board/BoardModel';
 import PlayerBadge from '../../../src/connectfour/player/PlayerBadge';
 import PlayerModel from '../../../src/connectfour/player/PlayerModel';
+import { colors } from '../../../src/connectfour/board/ColorHelper';
 
 describe('<PlayerBadge />', () => {
     let playerName;
@@ -16,14 +16,14 @@ describe('<PlayerBadge />', () => {
     });
 
     it('should render the right player name', () => {
-        const player = new PlayerModel(playerName, BoardModel.colors.red);
+        const player = new PlayerModel(playerName, colors.red);
         const playerBadge = shallow(<PlayerBadge player={player} />);
 
         expect(playerBadge.find(Text).props().children).to.equal(playerName);
     });
 
     it('should render the right player color', () => {
-        const player = new PlayerModel(playerName, BoardModel.colors.yellow);
+        const player = new PlayerModel(playerName, colors.yellow);
         const playerBadge = shallow(<PlayerBadge player={player} />);
 
         expect(
@@ -34,7 +34,7 @@ describe('<PlayerBadge />', () => {
     });
 
     it('should be highlighted', () => {
-        const player = new PlayerModel(playerName, BoardModel.colors.yellow);
+        const player = new PlayerModel(playerName, colors.yellow);
         const highlighted = true;
         const playerBadge = shallow(<PlayerBadge player={player} highlighted={highlighted} />);
 

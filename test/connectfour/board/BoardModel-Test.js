@@ -2,6 +2,7 @@ import { expect } from 'chai';
 
 import addDiscToBoard from '../../../src/connectfour/board/AddDisc';
 import BoardModel from '../../../src/connectfour/board/BoardModel';
+import { colors } from '../../../src/connectfour/board/ColorHelper';
 
 describe('Board', () => {
     describe('constructor', () => {
@@ -20,7 +21,7 @@ describe('Board', () => {
         it('should recognize when a board is full', () => {
             let board = new BoardModel(1, 1);
             expect(board.isFull()).to.be.false;
-            board = addDiscToBoard(board, 0, BoardModel.colors.red);
+            board = addDiscToBoard(board, 0, colors.red);
             expect(board.isFull()).to.be.true;
         });
     });

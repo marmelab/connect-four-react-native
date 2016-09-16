@@ -1,13 +1,8 @@
 import { transposeHorizontally, transposeDiagonally } from '../../tool/ArrayTransposer';
 import hasConsecutiveValues from '../../tool/ArrayConsecutive';
+import { colors } from './ColorHelper';
 
 export default class Board {
-    static colors = {
-        empty: 0,
-        red: 1,
-        yellow: 2,
-    }
-
     constructor(width, height) {
         this.cells = [];
         this.initializeCells(width, height);
@@ -15,7 +10,7 @@ export default class Board {
 
     initializeCells(width, height) {
         this.cells = Array.from(Array(width), () =>
-            Array(height).fill(Board.colors.empty)
+            Array(height).fill(colors.empty)
         );
     }
 
