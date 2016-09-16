@@ -16,6 +16,10 @@ export default class Board {
         );
     }
 
+    isColumnFull(columnNumber) {
+        return this.cells[columnNumber].every(cell => cell !== 0);
+    }
+
     isFull() {
         return this.cells.every(column =>
             column.every(cell =>

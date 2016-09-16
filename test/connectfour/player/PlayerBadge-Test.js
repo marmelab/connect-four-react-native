@@ -40,8 +40,8 @@ describe('<PlayerBadge />', () => {
 
         expect(
             playerBadge.closest(View)
-            .props().style
-            .some(el => el.backgroundColor === 'yellow')
+            .props().style[0]
+            .some(el => el.backgroundColor === 'lightsteelblue')
         ).to.be.true;
     });
 });
