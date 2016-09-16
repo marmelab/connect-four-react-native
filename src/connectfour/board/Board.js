@@ -22,6 +22,7 @@ const styles = StyleSheet.create({
     button: {
         flex: 1,
         padding: 10,
+        margin: 0,
     },
     table: {
         flex: 0,
