@@ -63,9 +63,7 @@ export default class PlayPage extends Component {
     }
 
     playAgain = () => {
-        const gameModel = new GameModel();
-
-        this.setState({ game: gameModel });
+        this.setState({ game: new GameModel() });
     }
 
     showGameStatus = (status, winner) => {
