@@ -50,7 +50,8 @@ export default class PlayPage extends Component {
     constructor(props) {
         super(props);
 
-        const gameModel = new GameModel();
+        const gameModel = new GameModel(this.props.againstComputer);
+
         this.state = {
             game: gameModel,
         };
@@ -123,4 +124,5 @@ export default class PlayPage extends Component {
 
 PlayPage.propTypes = {
     navigator: React.PropTypes.instanceOf(Navigator),
+    againstComputer: React.PropTypes.bool,
 };

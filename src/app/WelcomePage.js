@@ -31,11 +31,15 @@ const WelcomePage = ({ navigator }) => {
     const startPlayingWithFriend = () => {
         navigator.replace({
             id: 'PlayPage',
+            againstComputer: false,
         });
     };
 
     const startPlayingAgainstComputer = () => {
-
+        navigator.replace({
+            id: 'PlayPage',
+            againstComputer: true,
+        });
     };
 
     return (
