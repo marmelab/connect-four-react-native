@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
 
 const WelcomePage = ({ navigator }) => {
     const startPlaying = () => {
-        navigator.push({
+        navigator.replace({
             id: 'PlayPage',
         });
     };
