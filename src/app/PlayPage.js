@@ -9,7 +9,8 @@ import {
 
 import Board from '../connectfour/board/Board';
 import Button from '../chrome/Button';
-import GameModel from '../connectfour/game/GameModel';
+import ComputerGameModel from '../connectfour/game/ComputerGameModel';
+import HumanGameModel from '../connectfour/game/HumanGameModel';
 import PlayerBadge from '../connectfour/player/PlayerBadge';
 import playTurn from '../connectfour/game/PlayTurn';
 
@@ -50,12 +51,17 @@ export default class PlayPage extends Component {
     constructor(props) {
         super(props);
 
-        const gameModel = new GameModel(this.props.againstComputer);
-
         this.state = {
-            game: gameModel,
+            game: this.getGameModel(),
         };
     }
+
+    getGameModel = function () {
+        return this.props.againstComputer ?
+            new ComputerGameModel() :
+            new HumanGameModel();
+    }
+
 
     backToHome = () => {
         this.props.navigator.replace({
@@ -64,7 +70,7 @@ export default class PlayPage extends Component {
     }
 
     playAgain = () => {
-        this.setState({ game: new GameModel() });
+        this.setState({ game: this.getGameModel() });
     }
 
     showGameStatus = (status, winner) => {

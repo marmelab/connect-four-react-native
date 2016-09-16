@@ -1,13 +1,13 @@
 import { expect } from 'chai';
 import { Chance } from 'chance';
 
-import GameModel from '../../../src/connectfour/game/GameModel';
+import HumanGameModel from '../../../src/connectfour/game/HumanGameModel';
 import playTurn from '../../../src/connectfour/game/PlayTurn';
 
 describe('PlayTurn', () => {
     it('should drop the disc on the right column at the right row', () => {
         const chance = new Chance();
-        let game = new GameModel(chance.name(), chance.name());
+        let game = new HumanGameModel(chance.name(), chance.name());
 
         const firstPlayer = game.currentPlayer;
 
@@ -18,7 +18,7 @@ describe('PlayTurn', () => {
 
     it('should alternate turns when playing', () => {
         const chance = new Chance();
-        let game = new GameModel(chance.name(), chance.name());
+        let game = new HumanGameModel(chance.name(), chance.name());
 
         const firstPlayer = game.currentPlayer;
 

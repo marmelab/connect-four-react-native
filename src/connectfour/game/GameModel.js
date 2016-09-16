@@ -1,27 +1,13 @@
 import BoardModel from '../board/BoardModel';
-import { getRandomColor, getOtherColor } from '../board/ColorHelper';
-import PlayerModel from '../player/PlayerModel';
 
 export default class Game {
 
-    constructor(isAgainstComputer = false, firstPlayerName = 'Player #1', secondPlayerName = 'Player #2') {
+    constructor(firstPlayerName = 'Player #1', secondPlayerName = 'Player #2') {
         this.board = new BoardModel(7, 6);
 
         this.initializePlayers(firstPlayerName, secondPlayerName);
 
         this.currentPlayer = Math.random() < 0.5 ? this.player1 : this.player2;
-    }
-
-    initializeHumanPlayers(firstPlayerName, secondPlayerName) {
-        const firstPlayerColor = getRandomColor();
-        this.player1 = new PlayerModel(firstPlayerName, firstPlayerColor);
-        this.player2 = new PlayerModel(secondPlayerName, getOtherColor(firstPlayerColor));
-    }
-
-    initializeAgainstComputerPlayers() {
-        const firstPlayerColor = getRandomColor();
-        this.player1 = new PlayerModel('Computer', firstPlayerColor, true);
-        this.player2 = new PlayerModel('You', getOtherColor(firstPlayerColor));
     }
 
     isCurrentPlayer(player) {
