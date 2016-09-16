@@ -7,11 +7,7 @@ export default class Game {
     constructor(isAgainstComputer = false, firstPlayerName = 'Player #1', secondPlayerName = 'Player #2') {
         this.board = new BoardModel(7, 6);
 
-        if (isAgainstComputer) {
-            this.initializeAgainstComputerPlayers();
-        } else {
-            this.initializeHumanPlayers(firstPlayerName, secondPlayerName);
-        }
+        this.initializePlayers(firstPlayerName, secondPlayerName);
 
         this.currentPlayer = Math.random() < 0.5 ? this.player1 : this.player2;
     }
