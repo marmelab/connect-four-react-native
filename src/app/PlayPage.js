@@ -56,7 +56,9 @@ export default class PlayPage extends Component {
     }
 
     backToHome = () => {
-        this.props.navigator.pop(0);
+        this.props.navigator.replace({
+            id: 'WelcomePage',
+        });
     }
 
     playAgain = () => {
