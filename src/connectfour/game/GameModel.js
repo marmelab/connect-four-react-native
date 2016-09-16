@@ -1,5 +1,5 @@
 import BoardModel from '../board/BoardModel';
-import { randomizeColor, getOtherColor } from '../board/ColorHelper';
+import { getRandomColor, getOtherColor } from '../board/ColorHelper';
 import PlayerModel from '../player/PlayerModel';
 
 export default class Game {
@@ -13,13 +13,13 @@ export default class Game {
     }
 
     initializeHumanPlayers(firstPlayerName, secondPlayerName) {
-        const firstPlayerColor = randomizeColor();
+        const firstPlayerColor = getRandomColor();
         this.player1 = new PlayerModel(firstPlayerName, firstPlayerColor);
         this.player2 = new PlayerModel(secondPlayerName, getOtherColor(firstPlayerColor));
     }
 
     initializeAgainstComputerPlayers() {
-        const firstPlayerColor = randomizeColor();
+        const firstPlayerColor = getRandomColor();
         this.player1 = new PlayerModel('Computer', firstPlayerColor, true);
         this.player2 = new PlayerModel('You', getOtherColor(firstPlayerColor));
     }

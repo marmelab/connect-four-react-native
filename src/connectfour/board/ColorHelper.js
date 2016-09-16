@@ -6,7 +6,7 @@ export const colors = {
 };
 
 
-export const randomizeColor = function () {
+export const getRandomColor = function () {
     return Math.random() < 0.5 ?
         colors.red :
         colors.yellow;
