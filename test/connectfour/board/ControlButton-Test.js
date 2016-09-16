@@ -33,7 +33,7 @@ describe('<ControlButton />', () => {
         const boardModel = new BoardModel(2, 2);
         const controlButton = shallow(<ControlButton board={boardModel} onPress={dropDiscCallback} column={0} />);
 
-        controlButton.simulate('press');
+        controlButton.find(Button).simulate('press');
 
         expect(dropDiscCallback.called).to.be.true;
     });
