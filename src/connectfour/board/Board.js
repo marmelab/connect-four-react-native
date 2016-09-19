@@ -37,11 +37,11 @@ const styles = StyleSheet.create({
 
 });
 
-const Board = ({ board, dropDisc, style = null }) => (
+const Board = ({ board, dropDisc, canPlay, style = null }) => (
     <View style={[styles.container, style]}>
         <View style={styles.header}>
             {board.cells.map((cell, x) =>
-                <ControlButton board={board} column={x} onPress={dropDisc} key={`dropdisc-controlbutton-${x}`} style={styles.button} />
+                <ControlButton enabled={canPlay && !board.isColumnFull(x)} column={x} onPress={dropDisc} key={`dropdisc-controlbutton-${x}`} style={styles.button} />
             )}
         </View>
         <View style={styles.table}>
@@ -60,6 +60,7 @@ const Board = ({ board, dropDisc, style = null }) => (
 Board.propTypes = {
     board: React.PropTypes.instanceOf(BoardModel),
     dropDisc: React.PropTypes.func.isRequired,
+    canPlay: React.PropTypes.bool,
     style: View.propTypes.style,
 };
 
