@@ -3,6 +3,7 @@
     "extends": "airbnb",
     "env": {
         "mocha": true,
+        "browser": true,
     },
     "rules": {
         "max-len": "off",
