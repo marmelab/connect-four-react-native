@@ -1,10 +1,21 @@
 import React from 'react';
 import {
     View,
+    StyleSheet,
 } from 'react-native';
 
 import BoardModel from './BoardModel';
 import Button from '../../chrome/Button';
+
+const styles = StyleSheet.create({
+    placeholder: {
+        height: 40,
+        width: 40,
+    },
+    button: {
+        margin: 0,
+    },
+});
 
 const ControlButton = ({ board, onPress, column, style = null }) => {
     const dropDisc = () => {
@@ -13,8 +24,10 @@ const ControlButton = ({ board, onPress, column, style = null }) => {
 
     return (
         board.isColumnFull(column) ?
-            <View style={style} /> :
-            <Button text={String(column + 1)} onPress={dropDisc} style={style} />
+            <View style={styles.placeholder} /> :
+            <View style={styles.placeholder} >
+                <Button text={String(column + 1)} onPress={dropDisc} style={styles.button} />
+            </View>
     );
 };
 
