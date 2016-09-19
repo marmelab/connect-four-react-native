@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
     },
 });
 
-const ControlButton = ({ board, onPress, enabled, column, style = null }) => {
+const ControlButton = ({ board, onPress, enabled, column }) => {
     const dropDisc = () => {
         onPress(column);
     };
@@ -36,7 +36,6 @@ ControlButton.propTypes = {
     onPress: React.PropTypes.func.isRequired,
     enabled: React.PropTypes.bool,
     column: React.PropTypes.number.isRequired,
-    style: View.propTypes.style,
 };
 
 export default ControlButton;
