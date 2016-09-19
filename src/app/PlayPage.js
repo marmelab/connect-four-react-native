@@ -13,6 +13,7 @@ import ComputerGameModel from '../connectfour/game/ComputerGameModel';
 import HumanGameModel from '../connectfour/game/HumanGameModel';
 import PlayerBadge from '../connectfour/player/PlayerBadge';
 import playTurn from '../connectfour/game/PlayTurn';
+import { transposeHorizontally } from '../../src/tool/ArrayTransposer';
 
 const styles = StyleSheet.create({
     container: {
@@ -53,8 +54,12 @@ export default class PlayPage extends Component {
 
         this.state = {
             game: this.getGameModel(),
+            canPlay: true,
         };
     }
+
+    componentDidMount = () =>
+        this.checkComputerTurn(this.state.game);
 
     getGameModel = function () {
         return this.props.againstComputer ?
@@ -71,6 +76,7 @@ export default class PlayPage extends Component {
 
     playAgain = () => {
         this.setState({ game: this.getGameModel() });
+        this.checkComputerTurn(this.state.game);
     }
 
     showGameStatus = (status, winner) => {
@@ -105,21 +111,49 @@ export default class PlayPage extends Component {
 
         if (status !== 'playing') {
             this.showGameStatus(status, winner);
+        } else {
+            this.checkComputerTurn(nextGame);
         }
     }
 
+    checkComputerTurn = (game) => {
+        if (this.props.againstComputer && game.currentPlayer.isComputer) {
+            this.setState({ canPlay: false });
+            this.fetchColumn(game).then((bestColumn) => {
+                this.dropDisc(bestColumn);
+                this.setState({ canPlay: true });
+            });
+        }
+    }
+
+    fetchColumn = (game) => {
+        const grid = transposeHorizontally(game.board.cells);
+        const aiPlayer = game.currentPlayer.color;
+        return fetch(`http://localhost:8000?grid=${JSON.stringify(grid)}&aiPlayer=${aiPlayer}`, {
+            method: 'get',
+            credentials: 'include',
+        })
+        .then((response) => {
+            if (response.status === 200) {
+                return response.text();
+            }
+            return -1;
+        })
+        .then(parseInt);
+    }
+
     render() {
-        const game = this.state.game;
+        const { game, canPlay } = this.state;
         return (
             <View style={styles.container}>
                 <Text style={styles.title}>Play</Text>
 
                 <View style={styles.players}>
-                    <PlayerBadge player={game.player1} highlighted={game.isCurrentPlayer(game.player1)} style={styles.playerBadge} />
+                    <PlayerBadge player={game.player1} highlighted={game.isCurrentPlayer(game.player1)} loading={!canPlay} style={styles.playerBadge} />
                     <PlayerBadge player={game.player2} highlighted={game.isCurrentPlayer(game.player2)} style={styles.playerBadge} />
                 </View>
 
-                <Board board={game.board} dropDisc={this.dropDisc} style={styles.board} />
+                <Board board={game.board} dropDisc={this.dropDisc} style={styles.board} canPlay={canPlay} />
 
                 <Button onPress={this.backToHome} text="< Cancel game" />
             </View>

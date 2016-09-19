@@ -2,6 +2,7 @@ import React from 'react';
 import {
     StyleSheet,
     View,
+    ActivityIndicator,
     Text,
 } from 'react-native';
 
@@ -28,9 +29,12 @@ const styles = StyleSheet.create({
     highlighted: {
         backgroundColor: 'lightsteelblue',
     },
+    loader: {
+        marginLeft: 10,
+    },
 });
 
-const PlayerBadge = ({ player, highlighted, style = null }) => {
+const PlayerBadge = ({ player, highlighted, loading = false, style = null }) => {
     const wrapperStyle = [styles.wrapper];
     if (highlighted) {
         wrapperStyle.push(styles.highlighted);
@@ -40,6 +44,12 @@ const PlayerBadge = ({ player, highlighted, style = null }) => {
         <View style={[wrapperStyle, style]}>
             <View style={[styles.disc, styles[player.color]]} />
             <Text>{player.name}</Text>
+            <ActivityIndicator
+                animating={loading}
+                size="small"
+                style={styles.loader}
+                color="red"
+            />
         </View>
     );
 };
@@ -47,6 +57,7 @@ const PlayerBadge = ({ player, highlighted, style = null }) => {
 PlayerBadge.propTypes = {
     player: React.PropTypes.instanceOf(PlayerModel).isRequired,
     highlighted: React.PropTypes.bool,
+    loading: React.PropTypes.bool,
     style: View.propTypes.style,
 };
 
