@@ -17,13 +17,13 @@ const styles = StyleSheet.create({
     },
 });
 
-const ControlButton = ({ board, onPress, column, style = null }) => {
+const ControlButton = ({ board, onPress, enabled, column, style = null }) => {
     const dropDisc = () => {
         onPress(column);
     };
 
     return (
-        board.isColumnFull(column) ?
+        board.isColumnFull(column) || !enabled ?
             <View style={styles.placeholder} /> :
             <View style={styles.placeholder} >
                 <Button text={String(column + 1)} onPress={dropDisc} style={styles.button} />
@@ -34,6 +34,7 @@ const ControlButton = ({ board, onPress, column, style = null }) => {
 ControlButton.propTypes = {
     board: React.PropTypes.instanceOf(BoardModel).isRequired,
     onPress: React.PropTypes.func.isRequired,
+    enabled: React.PropTypes.bool,
     column: React.PropTypes.number.isRequired,
     style: View.propTypes.style,
 };
