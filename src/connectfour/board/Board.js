@@ -41,7 +41,7 @@ const Board = ({ board, dropDisc, canPlay, style = null }) => (
     <View style={[styles.container, style]}>
         <View style={styles.header}>
             {board.cells.map((cell, x) =>
-                <ControlButton board={board} enabled={canPlay} column={x} onPress={dropDisc} key={`dropdisc-controlbutton-${x}`} style={styles.button} />
+                <ControlButton enabled={canPlay && !board.isColumnFull(x)} column={x} onPress={dropDisc} key={`dropdisc-controlbutton-${x}`} style={styles.button} />
             )}
         </View>
         <View style={styles.table}>

@@ -4,7 +4,6 @@ import {
     StyleSheet,
 } from 'react-native';
 
-import BoardModel from './BoardModel';
 import Button from '../../chrome/Button';
 
 const styles = StyleSheet.create({
@@ -17,13 +16,13 @@ const styles = StyleSheet.create({
     },
 });
 
-const ControlButton = ({ board, onPress, enabled, column }) => {
+const ControlButton = ({ onPress, enabled, column }) => {
     const dropDisc = () => {
         onPress(column);
     };
 
     return (
-        board.isColumnFull(column) || !enabled ?
+        !enabled ?
             <View style={styles.placeholder} /> :
             <View style={styles.placeholder} >
                 <Button text={String(column + 1)} onPress={dropDisc} style={styles.button} />
@@ -32,10 +31,13 @@ const ControlButton = ({ board, onPress, enabled, column }) => {
 };
 
 ControlButton.propTypes = {
-    board: React.PropTypes.instanceOf(BoardModel).isRequired,
     onPress: React.PropTypes.func.isRequired,
     enabled: React.PropTypes.bool,
     column: React.PropTypes.number.isRequired,
+};
+
+ControlButton.defaultProps = {
+    enabled: true,
 };
 
 export default ControlButton;
